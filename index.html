@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhupendra Dewangan | Product Management Portfolio</title>
+  <meta name="description" content="Portfolio of Bhupendra Dewangan. Product Manager with a Computer Science background from COEP. Translating ambiguous ideas into dev-ready specs, Figma mockups, and shipped software.">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --surface: #FFFFFF;
+      --primary: #1B2A4A;
+      --primary-light: #2D426E;
+      --accent: #2563EB;
+      --accent-soft: #EFF6FF;
+      --text: #0F172A;
+      --text-muted: #475569;
+      --border: #E2E8F0;
+      --border-dark: #CBD5E1;
+      --tag-bg: #F1F5F9;
+      --radius: 8px;
+      --max-w: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    a:hover {
+      color: #1D4ED8;
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+
+    .nav-container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF !important;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--primary) !important;
+      border-color: var(--border-dark);
+    }
+
+    .btn-secondary:hover {
+      background: var(--tag-bg);
+    }
+
+    /* Layout Containers */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    section {
+      margin-bottom: 4.5rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      max-width: 650px;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 0.3rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* About Section */
+    .about-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .about-card p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Capabilities Grid */
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .capability-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .capability-card h3 {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .capability-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .capability-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Case Studies */
+    .case-study {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .case-study:last-child {
+      margin-bottom: 0;
+    }
+
+    .cs-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cs-meta-top {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.35rem;
+    }
+
+    .cs-header h3 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-role-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .cs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .cs-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-section h4 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .cs-section p {
+      font-size: 0.98rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-deepdive {
+      background: #F8FAFC;
+      border-left: 3px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 1.25rem 0;
+    }
+
+    .cs-deepdive h5 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+      font-weight: 700;
+    }
+
+    .cs-deepdive p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-deepdive ul {
+      margin-left: 1.25rem;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    .cs-deepdive li {
+      margin-bottom: 0.25rem;
+    }
+
+    .image-placeholder {
+      background: var(--tag-bg);
+      border: 1px dashed var(--border-dark);
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin: 1.25rem 0;
+      font-family: monospace;
+    }
+
+    .cs-impact-box {
+      background: var(--accent-soft);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .cs-impact-box h5 {
+      color: var(--accent);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-impact-box ul {
+      margin-left: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .placeholder-note {
+      color: #B45309;
+      background: #FEF3C7;
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Process Flow */
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+
+    .process-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      line-height: 26px;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Tools & Skills */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tool-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .tool-group h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tool-list {
+      list-style: none;
+    }
+
+    .tool-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.45rem 0;
+      font-size: 0.9rem;
+      border-bottom: 1px solid #F1F5F9;
+    }
+
+    .tool-list li:last-child {
+      border-bottom: none;
+    }
+
+    .tool-level {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Education & Honors */
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .edu-card h3 {
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .edu-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-details {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--primary);
+      color: #FFFFFF;
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-card p {
+      color: #CBD5E1;
+      max-width: 600px;
+      margin: 0 auto 1.75rem;
+      font-size: 1.05rem;
+    }
+
+    .contact-channels {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-channels a {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-channels a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .process-timeline {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="nav-brand">Bhupendra Dewangan</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#capabilities">Capabilities</a></li>
+        <li><a href="#case-studies">Case Studies</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="bhupendra_dewangan_resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Download Resume</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">Candidate for Product Management Intern (+PPO) | IsoCode Labs</div>
+      <h1>Product Manager who turns ambiguous ideas into dev-ready specs and shipped software.</h1>
+      <p class="hero-sub">
+        Final-year Computer Science undergraduate at COEP Technological University. Combining technical fluency in APIs and data models with structured Figma prototyping and RICE prioritization to keep delivery on schedule.
+      </p>
+      <div class="hero-actions">
+        <a href="#case-studies" class="btn btn-primary">View Case Studies</a>
+        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <span>Location: Pune, India (Remote Ready)</span>
+        <span>Target Batch: 2026</span>
+        <span>Status: Available for Intern + PPO</span>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About</h2>
+      <div class="about-card">
+        <p>
+          I am a final-year Computer Science undergraduate at COEP Technological University with a focus on product management. My technical grounding in software engineering, database management, and system architecture enables me to communicate with engineers in their own language and eliminate ambiguity during sprint handoffs.
+        </p>
+        <p>
+          During my time at Rupeedot Tech, I worked directly with founders to translate broad product concepts into dev-ready specifications, interactive Figma mockups, and structured sprint backlogs. I bridge the gap between business objectives, design clarity, and technical feasibility without guesswork.
+        </p>
+      </div>
+    </section>
+
+    <!-- Capabilities Section (Mapped directly to JD) -->
+    <section id="capabilities">
+      <h2 class="section-title">Capabilities Mapped to IsoCode Labs</h2>
+      <p class="section-desc">Direct alignment with core responsibilities for product direction, specification, design, and engineering alignment.</p>
+      <div class="capabilities-grid">
+        
+        <div class="capability-card">
+          <h3>Product Direction & Discovery</h3>
+          <p>Uncovering real user problems through structured interviews and synthesizing raw feedback into focused MVP boundaries.</p>
+          <div class="capability-tags">
+            <span class="tag">User Discovery</span>
+            <span class="tag">Scope Definition</span>
+            <span class="tag">Founder Vision</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <h3>Specs & Requirements Writing</h3>
+          <p>Writing comprehensive PRDs, user stories, acceptance criteria, and edge-case mapping that engineers can build without back-and-forth.</p>
+          <div class="capability-tags">
+            <span class="tag">Dev-Ready PRDs</span>
+            <span class="tag">Edge-Case Mapping</span>
+            <span class="tag">Acceptance Criteria</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <h3>Mockups & Figma Prototyping</h3>
+          <p>Designing interactive wireframes, component libraries, and hi-fi flows in Figma to validate usability and establish clean handoffs.</p>
+          <div class="capability-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">Design Systems</span>
+            <span class="tag">Interactive Flows</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <h3>Prioritization & Delivery</h3>
+          <p>Scoring backlogs using RICE, leading bi-weekly sprint planning, and managing concurrent workstreams to hit delivery targets on time.</p>
+          <div class="capability-tags">
+            <span class="tag">RICE Framework</span>
+            <span class="tag">Sprint Planning</span>
+            <span class="tag">Linear / Jira</span>
+          </div>
+        </div>
+
+        <div class="capability-card">
+          <h3>Technical Fluency</h3>
+          <p>Analyzing schemas, scoping REST API contracts, and writing SQL queries to inspect telemetry and validate data models with backend teams.</p>
+          <div class="capability-tags">
+            <span class="tag">SQL (PostgreSQL)</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Behavioral Telemetry</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies">
+      <h2 class="section-title">Case Studies</h2>
+      <p class="section-desc">Documented execution demonstrating dev-ready specification, Figma prototyping, and cross-functional technical delivery.</p>
+
+      <!-- Case Study 1 -->
+      <article class="case-study">
+        <div class="cs-header">
+          <div class="cs-meta-top">Case Study 1: Specification & Execution</div>
+          <h3>Rupeedot Tech: Dev-Ready Specs and Founder Vision</h3>
+          <div class="cs-role-stack">
+            <!-- [CONFIRM: Candidate Title Preference - Associate Product Manager vs Founding Product Intern] -->
+            <span><strong>Role:</strong> Associate Product Manager / Founding Product Intern</span>
+            <span><strong>Timeline:</strong> Jan 2025 - Apr 2025</span>
+            <span><strong>Context:</strong> Production B2B FinTech Platform</span>
+          </div>
+        </div>
+
+        <div class="cs-grid">
+          <div class="cs-section">
+            <h4>Outcome</h4>
+            <p>
+              Delivered 6 comprehensive PRDs with end-to-end edge-case mapping. Reduced engineering clarification cycles by 
+              <span class="placeholder-note">[CONFIRM: 35% cut baseline]</span> across bi-weekly sprints, keeping cross-functional teams aligned with founder goals.
+            </p>
+          </div>
+
+          <div class="cs-section">
+            <h4>The Problem & Ambiguity</h4>
+            <p>
+              The founders had high-level functional concepts for enterprise reporting and workflow modules, but lacked written technical scope. Developers were making unilateral assumptions about data validation, error handling, and permission boundaries, leading to rework and delayed delivery.
+            </p>
+          </div>
+
+          <div class="cs-section">
+            <h4>My Role & Approach</h4>
+            <p>
+              I worked directly with the founders to break high-level business goals into functional requirements. I held structured scoping sessions with backend engineers to evaluate schema constraints before finalizing documentation.
+            </p>
+          </div>
+
+          <!-- Deep dive into working process -->
+          <div class="cs-deepdive">
+            <h5>How I Wrote the Spec</h5>
+            <p>To eliminate developer guesswork, every PRD followed a rigid structure:</p>
+            <ul>
+              <li><strong>Context & Business Objective:</strong> Why we were building this and the primary success metric.</li>
+              <li><strong>User Personas & Permissions:</strong> Explicit access rules for enterprise admin vs. viewer roles.</li>
+              <li><strong>Happy
